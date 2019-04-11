@@ -40,3 +40,92 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//task 1, 2
+
+//nav anchors
+const navAnchors = document.querySelectorAll('a')
+navAnchors.forEach(function(element, index) {
+  element.textContent = siteContent["nav"][`nav-item-${index+1}`]
+})
+
+
+
+//cta 
+const cta = document.querySelector('.cta-text')
+let ctaH1 = Object.values(siteContent["cta"])
+ctaH1 = ctaH1[0].split(' ')
+ctaH1 = ctaH1.join('<br>')
+const ctaBtn = cta.querySelector('button')
+const ctaImg = document.getElementById('cta-img')
+
+
+cta.querySelector('h1').innerHTML = ctaH1
+ctaBtn.textContent = siteContent["cta"]["button"]
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"])
+
+
+//main content
+const main = document.querySelector(".main-content")
+const h4s = main.querySelectorAll("h4")
+
+h4s[0].textContent = siteContent["main-content"]["features-h4"]
+h4s[1].textContent = siteContent["main-content"]["about-h4"]
+h4s[2].textContent = siteContent["main-content"]["services-h4"]
+h4s[3].textContent = siteContent["main-content"]["product-h4"]
+h4s[4].textContent = siteContent["main-content"]["vision-h4"]
+
+const paragraphs = main.querySelectorAll("p")
+
+paragraphs[0].textContent = siteContent["main-content"]["features-content"]
+paragraphs[1].textContent = siteContent["main-content"]["about-content"]
+paragraphs[2].textContent = siteContent["main-content"]["services-content"]
+paragraphs[3].textContent = siteContent["main-content"]["product-content"]
+paragraphs[4].textContent = siteContent["main-content"]["vision-content"]
+
+const midImg = document.getElementById("middle-img")
+midImg.setAttribute('src', siteContent["main-content"]["middle-img-src"])
+
+
+
+//contact 
+const contact = document.querySelector(".contact")
+const contactValues = Object.values(siteContent["contact"]).slice(1)
+
+contact.querySelector('h4').textContent = siteContent["contact"]["contact-h4"]
+contact.querySelectorAll('p').forEach(function(element, index) {
+  element.textContent = contactValues[index]
+})
+
+
+//footer
+const footer = document.querySelector('footer')
+footer.querySelector('p').textContent = siteContent["footer"]["copyright"]
+
+
+
+//task 3: add new content
+navAnchors.forEach(element => {element.style.color = 'green'})
+
+const nav1 = document.createElement('a')
+nav1.textContent = 'News'
+nav1.style.color = 'green'
+
+const nav2 = document.createElement('a')
+nav2.textContent = 'Resources'
+nav2.style.color = 'green'
+
+
+document.querySelector("nav").appendChild(nav1)
+document.querySelector("nav").prepend(nav2)
+
+
+//stretch
+// document.querySelector('body').style.backgroundColor = 'gray'
+// document.querySelector('.container').style.color = 'orange'
+
+// const fixedNav = document.querySelector('header')
+// console.log(fixedNav)
+// fixedNav.style.position = 'fixed'
+// fixedNav.style.opacity = "1"
+// fixedNav.style.backgroundColor = "white"
